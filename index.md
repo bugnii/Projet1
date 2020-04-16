@@ -275,7 +275,7 @@ function draw_menu () {
 
 ctx.drawImage(backgroundImage, 0,0,canvas.width, canvas.height );
 
-if (((mousepositionX < bt_menu[0].positionX) || (mousepositionX > bt_menu[0].positionX+bt_menu[0].largeur))  || ((mousepositionY < bt_menu[0].positionY) || (mousepositionY >  bt_menu[0].positionY + bt_menu[0].hauteur))) {
+if (((mousepositionX < bt_menu[0].positionX) || (mousepositionX > bt_menu[0].positionX+bt_menu[0].largeur))  || ((mousepositionY < bt_menu[0].positionY- canvas.offsetTop) || (mousepositionY >  bt_menu[0].positionY + bt_menu[0].hauteur))) {
 	ctx.fillStyle = 'rgb(233, 176, 10)';
 	ctx.lineWidth = 3;
 	ctx.fillRect(bt_menu[0].positionX, bt_menu[0].positionY, bt_menu[0].largeur, bt_menu[0].hauteur);
