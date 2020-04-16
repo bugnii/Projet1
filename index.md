@@ -140,7 +140,7 @@ mouseclickpositionX = e.clientX - canvas.offsetLeft;
 mouseclickpositionY = e.clientY;
 console.log("Mouseposition X = " + mousepositionX);
 console.log("Prenant comptant d'un decalage gauche de" + canvas.offsetLeft);
-console.log("Mouseposition X = " + mousepositionY);
+console.log("Mouseposition Y = " + mousepositionY);
 console.log("Prenant comptant d'un decalage haut de" + canvas.offsetTop);
 console.log("Position X du menu" + bt_menu[0].positionX)
 console.log("Position Y du menu" + bt_menu[0].positionY)
