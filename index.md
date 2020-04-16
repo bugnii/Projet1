@@ -48,7 +48,7 @@ backgroundImage.src = 'img_background_menu.jpeg';
 
 var bt_gameover = [];
 
-bt_gameover[0] = {texte : "Revenir au menu", positionX : canvas.width/2, positionY : canvas.height/2, largeur : 300, hauteur : 50, activate : false};
+bt_gameover[0] = {texte : "Revenir au menu", positionX : canvas.width/2-100, positionY : canvas.height/2+250, largeur : 300, hauteur : 50, activate : false};
 
 var bt_menu = [];
 
@@ -126,7 +126,9 @@ words[i].positionX = 0;
 words[i].positionY = 0;
 words[i].anciennepositionX = 0;
 words[i].anciennepositionY = 0;
-
+words[i].timelastcrash = 0;
+words[i].statutcrash = false;
+words[i].statut = false;
 }
 
 
