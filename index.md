@@ -52,7 +52,7 @@ bt_gameover[0] = {texte : "Revenir au menu", positionX : canvas.width/2, positio
 
 var bt_menu = [];
 
-bt_menu[0] = {texte : "Play", positionX : canvas.width/2, positionY : canvas.height/2-10, largeur : 300, hauteur : 50, activate : false};
+bt_menu[0] = {texte : "Play", positionX : canvas.width/2, positionY : canvas.height/2-50, largeur : 300, hauteur : 50, activate : false};
 
  touchpressed[0] =  {touch :  "a", keyDown : false};
  touchpressed[1] =  {touch :  "b", keyDown : false};
@@ -169,11 +169,9 @@ a = true;
 
 if (gameover == true) {
 
-	if (
-	(((mouseclickpositionX < bt_gameover[0].positionX) || (mouseclickpositionX > bt_gameover[0].positionX+bt_gameover[0].largeur))  || ((mouseclickpositionY < bt_gameover[0].positionY) || (mouseclickpositionY >  bt_gameover[0].positionY + bt_gameover[0].hauteur)))
-	) {
+if (((mouseclickpositionX < bt_gameover[0].positionX) || (mouseclickpositionX > bt_gameover[0].positionX+bt_gameover[0].largeur))  || ((mouseclickpositionY < bt_gameover[0].positionY) || (mouseclickpositionY >  bt_gameover[0].positionY + bt_gameover[0].hauteur))) {
 
-	}
+}
 	else {
 	gameover = false;
 	game = false;
@@ -210,13 +208,13 @@ chaintext = chaintext.substring(0, chaintext.length - 1);
 if (e.keyCode == 13)
 {
 
-	for (i = 0; i <words.length; i++) {
+for (i = 0; i <words.length; i++) {
 	
-		if (chaintext == words[i].en) {
+if (chaintext == words[i].en) {
 		chaintext = "";
 		words[i].statut = false;
 		
-		}
+	}
 	}
 	
 }
@@ -254,7 +252,7 @@ function collision () {
 // verif si perte
 for (i = 0; i <words.length; i++) {
 
-	if (words[i].positionY >= base_y) {
+if (words[i].positionY >= base_y) {
 		words[i].statut = false;
 		words[i].positionY = 0;
 		//currentTime = audio.currentTime;
@@ -265,8 +263,8 @@ for (i = 0; i <words.length; i++) {
 		//do {
 		//console.log("boucle");
 		//}while(audio.paused== false) 
-		var audio = new Audio('son.mp3');
-		losspoint();
+var audio = new Audio('son.mp3');
+losspoint();
 	}
 	}
 
@@ -392,34 +390,26 @@ for ( i = 0;  i < words.length; i++) {
 			if (words[i].positionX <= 0 ) 	{
 				words[i].dx = -dx
 			}
-			
-		for ( j = 0;  j < words.length; j++) {
-			if (j !=i && words[j].statut == true) {
-								
-				if (
-					(words[i].positionX >= words[j].positionX - 30) &&
-					(words[i].positionX <= words[j].positionX + 30) &&
-					(words[i].positionY >= words[j].positionY - 30) && 
-					(words[i].positionY <= words[j].positionY + 30) 					
-					){ 
+for ( j = 0;  j < words.length; j++) {
+			if (j !=i && words[j].statut == true) {if ((words[i].positionX >= words[j].positionX - 30) &&(words[i].positionX <= words[j].positionX + 30) &&(words[i].positionY >= words[j].positionY - 30) && (words[i].positionY <= words[j].positionY + 30)){ 
 	
-						if (words[i].dx < 0 && words[i].statutcrash == false ) {
+if (words[i].dx < 0 && words[i].statutcrash == false ) {
 							words[i].dx = dx;
 							words[j].dx = -dx;
 							words[i].statutcrash = true;
 							
-						}
+}
 						
-						else if (words[i].dx > 0 && words[i].statutcrash == false) {
+else if (words[i].dx > 0 && words[i].statutcrash == false) {
 					
-							words[i].dx = -dx; 
+words[i].dx = -dx; 
 							words[j].dx = dx;
 			
-							words[i].statutcrash = true;
+words[i].statutcrash = true;
 						}
 				}
 				
-				if (words[i].statutcrash ==true) {
+if (words[i].statutcrash ==true) {
 					words[i].timelastcrash ++;
 				}
 				if (words[i].timelastcrash >= 900) { 
@@ -477,7 +467,7 @@ console.log("Condition ok pour lancer le jeu");
 		}
 	}
 
-	else  {
+else  {
 		gameover = true;
 
 	}
