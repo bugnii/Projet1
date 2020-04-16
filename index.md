@@ -113,7 +113,7 @@ words[18] = {fr: "s", en: "s", statut : false, positionX : 0, positionY : 0, anc
 function mouseMoveHandler(e) {
 
 mousepositionX = e.clientX - canvas.offsetLeft;
-mousepositionY = e.clientY;
+mousepositionY = e.clientY - canvas.offsetTop;
 }
 
 
