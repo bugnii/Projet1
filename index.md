@@ -156,7 +156,7 @@ if ((((mouseclickpositionX < bt_menu[0].positionX) || (mouseclickpositionX > bt_
 }
 else {
 
-
+console.log("clic dans la bonne zone");
 game = true;
 gameover = false;
 a = true;
