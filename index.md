@@ -137,7 +137,7 @@ deltatime = 0,01;
 function mouseClick(e) {
 
 mouseclickpositionX = e.clientX - canvas.offsetLeft;
-mouseclickpositionY = e.clientY;
+mouseclickpositionY = e.clientY - - canvas.offsetTop;
 //console.log("Mouseposition X = " + mousepositionX);
 //console.log("Prenant comptant d'un decalage gauche de" + canvas.offsetLeft);
 //console.log("Mouseposition Y = " + mousepositionY);
