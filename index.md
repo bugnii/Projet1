@@ -24,13 +24,13 @@ var wordcycletime = 500;
 var dx = 1.9;
 var dy = 1.9;
 var difficulty = 0.7
-var deltatime = 0.0001;
+var deltatime = 0.00001;
 var x = 0;
 var y = 0;
 var time = 0;
 var words = [];
 var touchpressed = [];
-var score = 500;
+var score = 5;
 var chaintext = "";
 var game = false;
 var mousepositionX;
@@ -52,7 +52,7 @@ bt_gameover[0] = {texte : "Revenir au menu", positionX : canvas.width/2, positio
 
 var bt_menu = [];
 
-bt_menu[0] = {texte : "Play", positionX : canvas.width/2, positionY : canvas.height/2-50, largeur : 300, hauteur : 50, activate : false};
+bt_menu[0] = {texte : "Play", positionX : canvas.width/2-100, positionY : canvas.height/2-150, largeur : 300, hauteur : 50, activate : false};
 
  touchpressed[0] =  {touch :  "a", keyDown : false};
  touchpressed[1] =  {touch :  "b", keyDown : false};
@@ -130,7 +130,7 @@ words[i].anciennepositionY = 0;
 }
 
 
-score = 500;
+score = 5;
 deltatime = 0,01;
 }
 
