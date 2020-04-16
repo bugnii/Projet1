@@ -1,7 +1,7 @@
 <html>
 <head>
     <meta charset="utf-8" />
-    <title>Gamedev Canvas Workshop</title>
+    <title>WordWorld</title>
     <style>
      * { padding: 0; margin: 0; }
      canvas { background: #eee; display: block; margin: 0 auto; }
@@ -113,6 +113,8 @@ function mouseMoveHandler(e) {
 
 mousepositionX = e.clientX - canvas.offsetLeft;
 mousepositionY = e.clientY - canvas.offsetTop;
+
+
 }
 
 
@@ -127,7 +129,7 @@ words[i].anciennepositionY = 0;
 
 }
 
-console.log("réinitialisation");
+
 score = 500;
 deltatime = 0,01;
 }
@@ -136,6 +138,10 @@ function mouseClick(e) {
 
 mouseclickpositionX = e.clientX - canvas.offsetLeft;
 mouseclickpositionY = e.clientY;
+console.log("Mouseposition X = " + mousepositionX);
+console.log("Prenant comptant d'un decalage gauche de" + canvas.offsetLeft);
+console.log("Mouseposition X = " + mousepositionY);
+console.log("Prenant comptant d'un decalage haut de" + canvas.offsetTop);
 
 
 }
@@ -150,7 +156,7 @@ if ((((mouseclickpositionX < bt_menu[0].positionX) || (mouseclickpositionX > bt_
 }
 else {
 
-console.log("test")
+
 game = true;
 gameover = false;
 a = true;
@@ -161,7 +167,6 @@ if ((((mouseclickpositionX < bt_gameover[0].positionX) || (mouseclickpositionX >
 }
 else {
 
-console.log("test2");
 
 gameover = false;
 game = false;
@@ -196,7 +201,7 @@ if (e.keyCode == 8)
 {
 
 chaintext = chaintext.substring(0, chaintext.length - 1);
-console.log(chaintext.length);
+
 }
 
 if (e.keyCode == 13)
@@ -305,7 +310,7 @@ if (Math.random() >= 0.985-deltatime) {
 
 return true;
 }
-console.log(deltatime);
+
 deltatime = deltatime*2;
 }
 
@@ -403,10 +408,10 @@ for ( i = 0;  i < words.length; i++) {
 						}
 						
 						else if (words[i].dx > 0 && words[i].statutcrash == false) {
-							console.log(words[i].dx);
+					
 							words[i].dx = -dx; 
 							words[j].dx = dx;
-							console.log(words[i].dx);
+			
 							words[i].statutcrash = true;
 						}
 				}
@@ -479,7 +484,7 @@ eventMenu();
 
 }
 else {
-console.log("testrgg");
+
 game = false;
 gameover = false;
 draw_menu();
