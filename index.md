@@ -138,12 +138,12 @@ function mouseClick(e) {
 
 mouseclickpositionX = e.clientX - canvas.offsetLeft;
 mouseclickpositionY = e.clientY;
-console.log("Mouseposition X = " + mousepositionX);
-console.log("Prenant comptant d'un decalage gauche de" + canvas.offsetLeft);
-console.log("Mouseposition Y = " + mousepositionY);
-console.log("Prenant comptant d'un decalage haut de" + canvas.offsetTop);
-console.log("Position X du menu" + bt_menu[0].positionX)
-console.log("Position Y du menu" + bt_menu[0].positionY)
+//console.log("Mouseposition X = " + mousepositionX);
+//console.log("Prenant comptant d'un decalage gauche de" + canvas.offsetLeft);
+//console.log("Mouseposition Y = " + mousepositionY);
+//console.log("Prenant comptant d'un decalage haut de" + canvas.offsetTop);
+//console.log("Position X du menu" + bt_menu[0].positionX)
+//console.log("Position Y du menu" + bt_menu[0].positionY)
 }
 
 function eventMenu () {
@@ -158,33 +158,31 @@ if ((((mouseclickpositionX < bt_menu[0].positionX) || (mouseclickpositionX > bt_
 else {
 
 console.log("clic dans la bonne zone");
-console.log("mouseclickpositionY : " + mouseclickpositionY);
-console.log("bt_menu[0].positionY : " + bt_menu[0].positionY);
-console.log(mouseclickpositionY + " < " + bt_menu[0].positionY);
-
+//console.log("mouseclickpositionY : " + mouseclickpositionY);
+//console.log("bt_menu[0].positionY : " + bt_menu[0].positionY);
+//console.log(mouseclickpositionY + " < " + bt_menu[0].positionY);
 game = true;
 gameover = false;
 a = true;
 }
 
-if ((((mouseclickpositionX < bt_gameover[0].positionX) || (mouseclickpositionX > bt_gameover[0].positionX+bt_gameover[0].largeur))  || ((mouseclickpositionY < bt_gameover[0].positionY) || (mouseclickpositionY >  bt_gameover[0].positionY + bt_gameover[0].hauteur)))) {
 
+if (gameover == true) {
+
+	if (
+	(((mouseclickpositionX < bt_gameover[0].positionX) || (mouseclickpositionX > bt_gameover[0].positionX+bt_gameover[0].largeur))  || ((mouseclickpositionY < bt_gameover[0].positionY) || (mouseclickpositionY >  bt_gameover[0].positionY + bt_gameover[0].hauteur)))
+	) {
+
+	}
+	else {
+	gameover = false;
+	game = false;
+	a = true;
+	}
 }
-else {
 
-
-gameover = false;
-game = false;
-a = true;
-
-}
-
-if (a == true)
-{ return true;
-}
-else {
-return false;}
-
+console.log("game : " + game);
+console.log("gameover : " + gameover);
 
 }
 
@@ -460,7 +458,9 @@ function draw ()
 {
 
 if (game == true && gameover == false) {
+console.log("Condition ok pour lancer le jeu");
 	if (score >0) {
+		console.log("Condition score >0");
 		ctx.clearRect(0, 0, canvas.width, canvas.height);
 		draw_base();
 		draw_word();
@@ -489,12 +489,13 @@ eventMenu();
 
 }
 else {
-
+reinitialisation();
+console.log("condition qui boucle mal");
 game = false;
 gameover = false;
 draw_menu();
 eventMenu();
-reinitialisation();
+
 
 
 }
