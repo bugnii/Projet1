@@ -151,7 +151,7 @@ function eventMenu () {
 a = false; 
 
 
-if ((((mouseclickpositionX < bt_menu[0].positionX) || (mouseclickpositionX > bt_menu[0].positionX+bt_menu[0].largeur))  || ((mouseclickpositionY < bt_menu[0].positionY) || (mouseclickpositionY >  bt_menu[0].positionY + bt_menu[0].hauteur)))) {
+if ((((mouseclickpositionX < bt_menu[0].positionX) || (mouseclickpositionX > bt_menu[0].positionX+bt_menu[0].largeur))  || ((mouseclickpositionY < bt_menu[0].positionY- canvas.offsetTop) || (mouseclickpositionY >  bt_menu[0].positionY + bt_menu[0].hauteur)))) {
 
 
 }
