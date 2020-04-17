@@ -23,7 +23,7 @@ var ctx = canvas.getContext("2d");
 var wordcycletime = 500;
 var dx = 1.9;
 var dy = 1.9;
-var difficulty = 0.7
+var difficulty = 0.5
 var deltatime = 0.00001;
 var x = 0;
 var y = 0;
@@ -140,12 +140,7 @@ function mouseClick(e) {
 
 mouseclickpositionX = e.clientX - canvas.offsetLeft;
 mouseclickpositionY = e.clientY - canvas.offsetTop;
-//console.log("Mouseposition X = " + mousepositionX);
-//console.log("Prenant comptant d'un decalage gauche de" + canvas.offsetLeft);
-//console.log("Mouseposition Y = " + mousepositionY);
-//console.log("Prenant comptant d'un decalage haut de" + canvas.offsetTop);
-//console.log("Position X du menu" + bt_menu[0].positionX)
-//console.log("Position Y du menu" + bt_menu[0].positionY)
+
 }
 
 function eventMenu () {
@@ -160,9 +155,6 @@ if ((((mouseclickpositionX < bt_menu[0].positionX) || (mouseclickpositionX > bt_
 else {
 
 console.log("clic dans la bonne zone");
-//console.log("mouseclickpositionY : " + mouseclickpositionY);
-//console.log("bt_menu[0].positionY : " + bt_menu[0].positionY);
-//console.log(mouseclickpositionY + " < " + bt_menu[0].positionY);
 game = true;
 gameover = false;
 a = true;
@@ -229,7 +221,6 @@ function keyUpHandler (e)
 for (i = 65; i <= 90; i++) {
 
 if (i == e.keyCode) {
-//alert(e.keyCode);
 touchpressed[i-65].keyDown = false;
 break;
 }
@@ -251,20 +242,15 @@ score--
 
 function collision () {
 
-// verif si perte
 for (i = 0; i <words.length; i++) {
 
 if (words[i].positionY >= base_y) {
 		words[i].statut = false;
 		words[i].positionY = 0;
-		//currentTime = audio.currentTime;
 		audio2 = new Audio('explosion.mp3');
 		audio2.play();
-		//setTimeout(audio.pause(), 1000);
 		
-		//do {
-		//console.log("boucle");
-		//}while(audio.paused== false) 
+
 var audio = new Audio('son.mp3');
 losspoint();
 	}
@@ -284,7 +270,7 @@ if (((mousepositionX < bt_menu[0].positionX) || (mousepositionX > bt_menu[0].pos
 	ctx.font = "20px Arial";
 	ctx.fillStyle = 'rgb(120, 115, 0)';
 	ctx.fillText(bt_menu[0].texte, bt_menu[0].positionX+bt_menu[0].largeur/2-bt_menu[0].texte.length*5, bt_menu[0].positionY+bt_menu[0].hauteur/2+bt_menu[0].texte.length*2);
-//	console.log(mousepositionXt+ " " + mousepositionY);
+
 	
 } 
 else {
@@ -322,7 +308,6 @@ function draw_write () {
 for (i = 0; i <26; i++) {
 
 if (touchpressed[i].keyDown == true) {
-//console.log("ecriturelettre");
 chaintext = chaintext + touchpressed[i].touch;
 ctx.fillText(chaintext, canvas.width / 2, canvas.height-20);
 touchpressed[i].keyDown = false;
@@ -349,8 +334,7 @@ if (((mousepositionX < bt_gameover[0].positionX) || (mousepositionX > bt_gameove
 	ctx.font = "20px Arial";
 	ctx.fillStyle = 'rgb(120, 115, 0)';
 	ctx.fillText(bt_gameover[0].texte, bt_gameover[0].positionX+bt_gameover[0].largeur/2-bt_gameover[0].texte.length*5, bt_gameover[0].positionY+bt_gameover[0].hauteur/2+3);
-//	console.log(mousepositionXt+ " " + mousepositionY);
-	
+
 } 
 else {
 	ctx.fillStyle = 'rgb(230, 155, 49)';
