@@ -52,7 +52,7 @@ bt_gameover[0] = {texte : "Revenir au menu", positionX : canvas.width/2-100, pos
 
 var bt_menu = [];
 
-bt_menu[0] = {texte : "Play", positionX : canvas.width/2-100, positionY : canvas.height/2-150, largeur : 300, hauteur : 50, activate : false};
+bt_menu[0] = {texte : "Play", positionX : canvas.width/2-largeur/2, positionY : canvas.height/2-150, largeur : 300, hauteur : 50, activate : false};
 
  touchpressed[0] =  {touch :  "a", keyDown : false};
  touchpressed[1] =  {touch :  "b", keyDown : false};
