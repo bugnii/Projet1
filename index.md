@@ -41,6 +41,7 @@ var audio = new Audio('son.mp3');
 var currentTime = 0;
 var backgroundImage = new Image();
 var gameover = false;
+var timerbarre = 0;
 backgroundImage.src = 'img_background_menu.jpeg';
 
 
@@ -129,6 +130,8 @@ words[i].anciennepositionY = 0;
 words[i].timelastcrash = 0;
 words[i].statutcrash = false;
 words[i].statut = false;
+timerbarre = 0;
+time = 0;
 }
 
 
@@ -145,7 +148,7 @@ mouseclickpositionY = e.clientY - canvas.offsetTop;
 
 function eventMenu () {
 
-a = false; 
+
 
 
 if ((((mouseclickpositionX < bt_menu[0].positionX) || (mouseclickpositionX > bt_menu[0].positionX+bt_menu[0].largeur))  || ((mouseclickpositionY < bt_menu[0].positionY- canvas.offsetTop) || (mouseclickpositionY >  bt_menu[0].positionY + bt_menu[0].hauteur)))) {
@@ -154,10 +157,10 @@ if ((((mouseclickpositionX < bt_menu[0].positionX) || (mouseclickpositionX > bt_
 }
 else {
 
-console.log("clic dans la bonne zone");
+
 game = true;
 gameover = false;
-a = true;
+
 }
 
 
@@ -169,12 +172,11 @@ if (((mouseclickpositionX < bt_gameover[0].positionX) || (mouseclickpositionX > 
 	else {
 	gameover = false;
 	game = false;
-	a = true;
+
 	}
 }
 
-console.log("game : " + game);
-console.log("gameover : " + gameover);
+
 
 }
 
@@ -305,23 +307,29 @@ deltatime = deltatime*2;
 
 function draw_write () {
 
+
 for (i = 0; i <26; i++) {
-
-if (touchpressed[i].keyDown == true) {
-chaintext = chaintext + touchpressed[i].touch;
-ctx.fillText(chaintext, canvas.width / 2, canvas.height-20);
-touchpressed[i].keyDown = false;
-
+	if (touchpressed[i].keyDown == true) {
+	chaintext = chaintext + touchpressed[i].touch;
+	ctx.fillText(chaintext, canvas.width / 2, canvas.height-20);
+	touchpressed[i].keyDown = false;
 }
 else ctx.fillText(chaintext, canvas.width / 2, canvas.height-20);
-
 }
 
+timerbarre ++;
+if (timerbarre < 100 ) {
 
-
-
+	ctx.fillText("-> " , canvas.width / 2 - 20 , canvas.height-20);
+	}
+else if (timerbarre < 115 ){
+	ctx.fillText(" " , canvas.width / 2 - 20 , canvas.height-20);
 }
+else timerbarre = 0;
 
+
+
+} 
 function draw_gameover () {
 
 ctx.font = "80px Arial";
@@ -398,7 +406,7 @@ words[i].statutcrash = true;
 if (words[i].statutcrash ==true) {
 					words[i].timelastcrash ++;
 				}
-				if (words[i].timelastcrash >= 900) { 
+				if (words[i].timelastcrash >= 700) { 
 								words[i].statutcrash = false;
 								words[i].timelastcrash = 0;
 				}
@@ -434,9 +442,9 @@ function draw ()
 {
 
 if (game == true && gameover == false) {
-console.log("Condition ok pour lancer le jeu");
+
 	if (score >0) {
-		console.log("Condition score >0");
+
 		ctx.clearRect(0, 0, canvas.width, canvas.height);
 		draw_base();
 		draw_word();
@@ -466,7 +474,6 @@ eventMenu();
 }
 else {
 reinitialisation();
-console.log("condition qui boucle mal");
 game = false;
 gameover = false;
 draw_menu();
